@@ -1,5 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getIdsFetch, getItemsFetch } from "../api/api";
+import {
+  fieldsFetch,
+  getIdsFetch,
+  getItemsFetch,
+  searchFetch,
+} from "../api/api";
 
 //запрос на получение всех id
 export const useIds = () => {
@@ -35,9 +40,43 @@ export const useItems = (idsForPage) => {
           return response;
         }
       }
-      throw new Error("Failed to fetch ids");
+      throw new Error("Failed to fetch items");
     },
     enabled: !!idsForPage,
   });
   return { items, itemsLoading, itemsError };
+};
+
+export const useField = () => {
+  const { data: fields, isLoading: fieldsLoading } = useQuery({
+    queryKey: ["getFilds"],
+    queryFn: async () => {
+      const res = await fieldsFetch();
+      if (res.ok) {
+        const response = await res.json();
+        return response;
+      }
+      throw new Error("Failed to fetch field");
+    },
+  });
+  return { fields, fieldsLoading };
+};
+
+export const useSearch = (value) => {
+  const {
+    data: filteredBySearchIds,
+    isLoading: searchLoading,
+    isError: searchError,
+  } = useQuery({
+    queryKey: ["getFilter", value],
+    queryFn: async () => {
+      const res = await searchFetch(value);
+      if (res.ok) {
+        const response = await res.json();
+        return response;
+      }
+      throw new Error("Failed to fetch search");
+    },
+  });
+  return { filteredBySearchIds, searchLoading, searchError };
 };

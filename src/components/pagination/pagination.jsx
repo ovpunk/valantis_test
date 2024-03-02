@@ -3,7 +3,6 @@ import styles from "./pagination.module.scss";
 
 export const Pagination = ({ offset, setOffset, pagesCount }) => {
   const [currentPage, setCurrentPage] = useState(offset / 50 + 1);
-
   const changeOffset = (pageNumber) => {
     setOffset(pageNumber * 50);
   };
@@ -12,12 +11,16 @@ export const Pagination = ({ offset, setOffset, pagesCount }) => {
     setCurrentPage(offset / 50 + 1);
   }, [offset]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
   const pagesToShow = 10;
   const generatePages = (currentPage, total) => {
     const pagesArray = [];
     if (total <= pagesToShow) {
       // Если общее количество страниц меньше или равно количеству страниц для отображения, отобразить все страницы
-      return Array.from({ length: pagesCount }, (_, index) => index + 1);
+      return Array.from({ length: pagesCount }, (_, index) => index);
     }
     let startPage = currentPage - Math.floor(pagesToShow / 2);
     startPage = Math.max(startPage, 1);

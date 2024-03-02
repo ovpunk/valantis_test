@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.search_wrapper {
+  position: relative;
+  width: 360px;
+  margin: 0 auto;
+  input {
+    border: none;
+    border-radius: 10px;
+    width: 360px;
+    padding: 10px 15px;
+    font-size: 18px;
+    outline: none;
+  }
+
+  button {
+    right: 10px;
+    top: 8px;
+    position: absolute;
+    background-color: inherit;
+    border: none;
+  }
+  svg {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    transition: 0.3s;
+    &:hover {
+      stroke: #444;
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+  }
+}

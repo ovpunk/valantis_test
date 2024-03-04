@@ -4,22 +4,28 @@ import { SearchContext } from "../layout";
 
 export const Header = () => {
   //состояние поля в компоненте
-  const [inputValue, setInputValue] = useState("");
+  const [value, setValue] = useState("");
 
   //состояние поля для контекста(для запроса по клику)
-  const { setValue } = useContext(SearchContext);
+  const { setInputValue } = useContext(SearchContext);
+
+  const { setSelectedBrand } = useContext(SearchContext);
+
+  const { setPriceFilterValue } = useContext(SearchContext);
 
   //изменение состояния для контекста
-  const handleSubmit = () => {
-    setValue(inputValue);
+  const handleSearch = () => {
+    setSelectedBrand("Выбрать бренд");
+    setPriceFilterValue(0);
+    setInputValue(value);
   };
 
-  //возврат, если поле писка пустое
+  //возврат, если поле поиска пустое
   useEffect(() => {
-    if (inputValue.length === 0) {
-      setValue("");
+    if (value.length === 0) {
+      setInputValue("");
     }
-  }, [inputValue.length, setValue]);
+  }, [value.length, setInputValue]);
 
   return (
     <header className="header">
@@ -27,15 +33,15 @@ export const Header = () => {
       <div className={styles.search_wrapper}>
         <input
           placeholder="Поиск"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              handleSubmit();
+              handleSearch();
             }
           }}
         />
-        <button onClick={() => handleSubmit()}>
+        <button onClick={() => handleSearch()}>
           <svg
             className="feather feather-search"
             fill="none"

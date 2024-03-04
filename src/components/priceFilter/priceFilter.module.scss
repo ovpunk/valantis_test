@@ -1,0 +1,26 @@
+.price {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  input {
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+  }
+  button {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #d2b48c;
+    background-color: #000;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+
+      background-color: #333;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.filter_title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  transition: 0.3s;
+  display: flex;
+  width: 110px;
+  gap: 10px;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+    color: #d2b48c;
+    transition: 0.3s;
+    fill: #d2b48c;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.filter {
+  position: relative;
+  padding: 0 0 100px;
+  resize: none;
+  display: flex;
+  gap: 60px;
+}
+
+.price {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  input {
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+  }
+  button {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #d2b48c;
+    background-color: #000;
+    transition: 0.3s;
+    &:hover {
+      transition: 0.3s;
+
+      background-color: #333;
+    }
+  }
+}
+
+.description_wrapper {
+  padding: 0 0 20px;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 600;
+  color: #d2b48c;
+}
+.reset {
+  position: absolute;
+  bottom: 60px;
+  padding: 5px;
+  outline: none;
+  color: #000;
+  font-weight: 600;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.brand {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+
+  select {
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+  }
+}

@@ -2,7 +2,6 @@ import styles from "./products.module.scss";
 
 export const Products = ({ uniqueItems }) => {
   return (
-    //<div className="container">
     <div className={styles.products}>
       {uniqueItems &&
         uniqueItems.map((el) => (
@@ -17,6 +16,5 @@ export const Products = ({ uniqueItems }) => {
           </div>
         ))}
     </div>
-    //</div>
   );
 };

@@ -7,6 +7,12 @@
   position: absolute;
   font-size: 40px;
   font-weight: 900;
+  @media (max-width: 1120px) {
+    font-size: 30px;
+  }
+  @media (max-width: 756px) {
+    opacity: 0;
+  }
 }
 
 .search_wrapper {
@@ -20,6 +26,14 @@
     padding: 10px 15px;
     font-size: 18px;
     outline: none;
+    @media (max-width: 1120px) {
+      width: 300px;
+      padding: 6px 10px;
+    }
+    @media (max-width: 756px) {
+      width: 260px;
+      padding: 6px 10px;
+    }
   }
 
   button {
